@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_light_blue_wool": {
+    "has_leather": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:light_blue_wool"
+              "minecraft:leather"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "upgrade_aquatic:light_blue_bedroll"
+        "recipe": "upgrade_aquatic:bedroll"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_light_blue_wool",
+      "has_leather",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "upgrade_aquatic:light_blue_bedroll"
+      "upgrade_aquatic:bedroll"
     ]
   },
   "sends_telemetry_event": false

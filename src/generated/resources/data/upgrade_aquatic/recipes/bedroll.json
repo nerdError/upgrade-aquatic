@@ -7,7 +7,7 @@
       "item": "minecraft:leather"
     },
     "X": {
-      "item": "minecraft:blue_wool"
+      "item": "minecraft:white_wool"
     }
   },
   "pattern": [
@@ -15,7 +15,7 @@
     "###"
   ],
   "result": {
-    "item": "upgrade_aquatic:blue_bedroll"
+    "item": "upgrade_aquatic:bedroll"
   },
   "show_notification": true
 }

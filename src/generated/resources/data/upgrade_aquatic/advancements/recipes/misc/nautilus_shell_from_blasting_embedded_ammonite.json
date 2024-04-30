@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_red_wool": {
+    "has_embedded_ammonite": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:red_wool"
+              "upgrade_aquatic:embedded_ammonite"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "upgrade_aquatic:red_bedroll"
+        "recipe": "upgrade_aquatic:nautilus_shell_from_blasting_embedded_ammonite"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_red_wool",
+      "has_embedded_ammonite",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "upgrade_aquatic:red_bedroll"
+      "upgrade_aquatic:nautilus_shell_from_blasting_embedded_ammonite"
     ]
   },
   "sends_telemetry_event": false
