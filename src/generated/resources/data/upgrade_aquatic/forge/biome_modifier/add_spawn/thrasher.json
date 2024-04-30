@@ -1,6 +1,6 @@
 {
   "type": "forge:add_spawns",
-  "biomes": "#upgrade_aquatic:has_monster/thrasher",
+  "biomes": "#upgrade_aquatic:has_spawn/thrasher",
   "spawners": {
     "type": "upgrade_aquatic:thrasher",
     "maxCount": 2,

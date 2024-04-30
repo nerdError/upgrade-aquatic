@@ -1,6 +1,6 @@
 {
   "type": "forge:add_spawns",
-  "biomes": "#upgrade_aquatic:has_animal/perch",
+  "biomes": "#upgrade_aquatic:has_spawn/perch",
   "spawners": {
     "type": "upgrade_aquatic:perch",
     "maxCount": 6,
