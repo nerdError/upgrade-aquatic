@@ -16,7 +16,7 @@ public class VibingMobEffect extends MobEffect {
 	@Override
 	public void applyEffectTick(LivingEntity entity, int amplifier) {
 		for (LivingEntity living : entity.level().getEntitiesOfClass(LivingEntity.class, entity.getBoundingBox().inflate(0.3D))) {
-			if (living.isAlive() && living != entity && !(living instanceof Player && ((Player) living).isCreative())) {
+			if (living.isAlive() && living != entity && !living.hasEffect(MobEffects.REGENERATION) && !(living instanceof Player player && player.isCreative())) {
 				living.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 70, amplifier + 1));
 			}
 		}
@@ -26,5 +26,4 @@ public class VibingMobEffect extends MobEffect {
 	public boolean isDurationEffectTick(int duration, int amplifier) {
 		return true;
 	}
-
 }
