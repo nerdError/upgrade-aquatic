@@ -163,7 +163,7 @@ public class UpgradeAquatic {
 
 	private void registerCCCompat(IEventBus bus) {
 		if ("true".equals(System.getProperty("blueprint.indev")) && !ModList.get().isLoaded(UAConstants.CAVERNS_AND_CHASMS)) {
-			UABlocks.CAVERNS_AND_CHASMS.register(bus);
+			UAConstants.CAVERNS_AND_CHASMS_ITEMS.register(bus);
 		}
 	}
 }

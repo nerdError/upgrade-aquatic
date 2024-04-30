@@ -4,6 +4,7 @@ import com.teamabnormals.blueprint.core.data.server.BlueprintRecipeProvider;
 import com.teamabnormals.boatload.core.data.server.BoatloadRecipeProvider;
 import com.teamabnormals.upgrade_aquatic.common.block.CoralType;
 import com.teamabnormals.upgrade_aquatic.core.UpgradeAquatic;
+import com.teamabnormals.upgrade_aquatic.core.other.UAConstants;
 import com.teamabnormals.upgrade_aquatic.core.other.tags.UAItemTags;
 import com.teamabnormals.upgrade_aquatic.core.registry.UABlocks;
 import com.teamabnormals.upgrade_aquatic.core.registry.UAItems;
@@ -157,7 +158,8 @@ public class UARecipeProvider extends BlueprintRecipeProvider {
 		conditionalRecipe(consumer, cnc, BUILDING_BLOCKS, ShapedRecipeBuilder.shaped(BUILDING_BLOCKS, KELPY_COBBLESTONE_TILES.get(), 4).define('#', KELPY_COBBLESTONE_BRICKS.get()).pattern("##").pattern("##").unlockedBy(getHasName(KELPY_COBBLESTONE_BRICKS.get()), has(KELPY_COBBLESTONE_BRICKS.get())));
 		conditionalRecipe(consumer, cnc, BUILDING_BLOCKS, stairBuilder(KELPY_COBBLESTONE_TILE_STAIRS.get(), Ingredient.of(KELPY_COBBLESTONE_TILES.get())).unlockedBy(getHasName(KELPY_COBBLESTONE_TILES.get()), has(KELPY_COBBLESTONE_TILES.get())));
 		conditionalRecipe(consumer, cnc, BUILDING_BLOCKS, slabBuilder(RecipeCategory.BUILDING_BLOCKS, KELPY_COBBLESTONE_TILE_SLAB.get(), Ingredient.of(KELPY_COBBLESTONE_TILES.get())).unlockedBy(getHasName(KELPY_COBBLESTONE_TILES.get()), has(KELPY_COBBLESTONE_TILES.get())));
-		conditionalRecipe(consumer, cnc, BUILDING_BLOCKS, wallBuilder(RecipeCategory.DECORATIONS, KELPY_COBBLESTONE_TILE_WALL.get(), Ingredient.of(KELPY_COBBLESTONE_TILES.get())).unlockedBy(getHasName(KELPY_COBBLESTONE_TILES.get()), has(KELPY_COBBLESTONE_TILES.get())));conditionalStonecutterRecipe(consumer, cnc, BUILDING_BLOCKS, KELPY_COBBLESTONE_TILE_SLAB.get(), KELPY_COBBLESTONE_TILES.get(), 2);
+		conditionalRecipe(consumer, cnc, BUILDING_BLOCKS, wallBuilder(RecipeCategory.DECORATIONS, KELPY_COBBLESTONE_TILE_WALL.get(), Ingredient.of(KELPY_COBBLESTONE_TILES.get())).unlockedBy(getHasName(KELPY_COBBLESTONE_TILES.get()), has(KELPY_COBBLESTONE_TILES.get())));
+		conditionalStonecutterRecipe(consumer, cnc, BUILDING_BLOCKS, KELPY_COBBLESTONE_TILE_SLAB.get(), KELPY_COBBLESTONE_TILES.get(), 2);
 		conditionalStonecutterRecipe(consumer, cnc, BUILDING_BLOCKS, KELPY_COBBLESTONE_TILE_STAIRS.get(), KELPY_COBBLESTONE_TILES.get());
 		conditionalStonecutterRecipe(consumer, cnc, DECORATIONS, KELPY_COBBLESTONE_TILE_WALL.get(), KELPY_COBBLESTONE_TILES.get());
 		conditionalStonecutterRecipe(consumer, cnc, BUILDING_BLOCKS, KELPY_COBBLESTONE_TILES.get(), KELPY_COBBLESTONE_BRICKS.get());
@@ -169,8 +171,8 @@ public class UARecipeProvider extends BlueprintRecipeProvider {
 		conditionalStonecutterRecipe(consumer, cnc, BUILDING_BLOCKS, KELPY_COBBLESTONE_TILE_STAIRS.get(), KELPY_COBBLESTONE.get());
 		conditionalStonecutterRecipe(consumer, cnc, DECORATIONS, KELPY_COBBLESTONE_TILE_WALL.get(), KELPY_COBBLESTONE.get());
 
-		conditionalRecipe(consumer, cnc, BUILDING_BLOCKS, ShapelessRecipeBuilder.shapeless(BUILDING_BLOCKS, KELPY_COBBLESTONE_BRICKS.get()).requires(COBBLESTONE_BRICKS.get()).requires(Blocks.KELP).group("cobblestone_bricks").unlockedBy("has_kelp", has(Blocks.KELP)), getModConversionRecipeName(KELPY_COBBLESTONE_BRICKS.get(), Blocks.KELP));
-		conditionalRecipe(consumer, cnc, BUILDING_BLOCKS, ShapelessRecipeBuilder.shapeless(BUILDING_BLOCKS, KELPY_COBBLESTONE_TILES.get()).requires(COBBLESTONE_TILES.get()).requires(Blocks.KELP).group("kelpy_cobblestone_tiles").unlockedBy("has_kelp", has(Blocks.KELP)), getModConversionRecipeName(KELPY_COBBLESTONE_TILES.get(), Blocks.KELP));
+		conditionalRecipe(consumer, cnc, BUILDING_BLOCKS, ShapelessRecipeBuilder.shapeless(BUILDING_BLOCKS, KELPY_COBBLESTONE_BRICKS.get()).requires(UAConstants.COBBLESTONE_BRICKS.get()).requires(Blocks.KELP).group("cobblestone_bricks").unlockedBy("has_kelp", has(Blocks.KELP)), getModConversionRecipeName(KELPY_COBBLESTONE_BRICKS.get(), Blocks.KELP));
+		conditionalRecipe(consumer, cnc, BUILDING_BLOCKS, ShapelessRecipeBuilder.shapeless(BUILDING_BLOCKS, KELPY_COBBLESTONE_TILES.get()).requires(UAConstants.COBBLESTONE_TILES.get()).requires(Blocks.KELP).group("kelpy_cobblestone_tiles").unlockedBy("has_kelp", has(Blocks.KELP)), getModConversionRecipeName(KELPY_COBBLESTONE_TILES.get(), Blocks.KELP));
 	}
 
 	public void coralBlockRecipe(Consumer<FinishedRecipe> consumer, Block coralBlock, Block coral, TagKey<Item> itemTag) {

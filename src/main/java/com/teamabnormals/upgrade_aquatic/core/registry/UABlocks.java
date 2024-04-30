@@ -35,7 +35,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.DyeColor;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.*;
@@ -48,7 +47,6 @@ import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
-import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
@@ -684,9 +682,4 @@ public class UABlocks {
 	public static final Map<Supplier<Block>, Supplier<Block>> GRAVEL_FALLABLES = Util.make(Maps.newHashMap(), (fallables) -> {
 		fallables.put(() -> Blocks.COBBLESTONE, () -> Blocks.GRAVEL);
 	});
-
-	public static final DeferredRegister<Item> CAVERNS_AND_CHASMS = DeferredRegister.create(ForgeRegistries.ITEMS, UAConstants.CAVERNS_AND_CHASMS);
-
-	public static RegistryObject<Item> COBBLESTONE_BRICKS = CAVERNS_AND_CHASMS.register("cobblestone_bricks", () -> new Item(new Item.Properties()));
-	public static RegistryObject<Item> COBBLESTONE_TILES = CAVERNS_AND_CHASMS.register("cobblestone_tiles", () -> new Item(new Item.Properties()));
 }
