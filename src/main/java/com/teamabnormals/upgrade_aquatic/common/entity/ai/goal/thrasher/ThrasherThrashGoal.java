@@ -25,7 +25,7 @@ public class ThrasherThrashGoal extends Goal {
 
 	@Override
 	public boolean canUse() {
-		Entity passenger = !thrasher.getPassengers().isEmpty() ? this.thrasher.getPassengers().get(0) : null;
+		Entity passenger = this.thrasher.getFirstPassenger();
 		if (passenger instanceof Player player) {
 			if (player.isCreative() || passenger.isSpectator()) {
 				return false;
@@ -36,7 +36,7 @@ public class ThrasherThrashGoal extends Goal {
 
 	@Override
 	public boolean canContinueToUse() {
-		Entity passenger = !thrasher.getPassengers().isEmpty() ? this.thrasher.getPassengers().get(0) : null;
+		Entity passenger = this.thrasher.getFirstPassenger();
 		if (passenger instanceof Player player) {
 			if (player.isCreative() || passenger.isSpectator()) {
 				return false;
@@ -67,7 +67,7 @@ public class ThrasherThrashGoal extends Goal {
 		this.thrasher.yBodyRot = (this.originalYaw) + 75 * Mth.cos(this.thrasher.tickCount * 0.5F) * 1F;
 		this.thrasher.setYRot((this.originalYaw) + 75 * Mth.cos(this.thrasher.tickCount * 0.5F) * 1F);
 
-		Entity entity = this.thrasher.getPassengers().get(0);
+		Entity entity = this.thrasher.getFirstPassenger();
 		if (entity instanceof Player player) {
 			this.disablePlayersShield(player);
 		}

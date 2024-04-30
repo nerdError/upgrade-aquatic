@@ -195,7 +195,7 @@ public class Thrasher extends Monster implements Endimatable {
 		super.removePassenger(passenger);
 		if (!this.level().isClientSide) {
 			if (!this.getPassengers().isEmpty()) {
-				Entity indexZeroPassenger = this.getPassengers().get(0);
+				Entity indexZeroPassenger = this.getFirstPassenger();
 				EntityDimensions defaultSize = this.getDefaultSize();
 				if (indexZeroPassenger instanceof LivingEntity && passenger.getVehicle() == this) {
 					this.setCaughtSize(EntityDimensions.fixed(defaultSize.width + passenger.getDimensions(passenger.getPose()).width, defaultSize.height));
@@ -406,7 +406,7 @@ public class Thrasher extends Monster implements Endimatable {
 			}
 			if (this.level().isClientSide()) {
 				if (!this.getPassengers().isEmpty() && this.isEndimationPlaying(UAPlayableEndimations.THRASHER_THRASH) && this.getAnimationTick() % 2 == 0 && this.getAnimationTick() > 5) {
-					Entity passenger = this.getPassengers().get(0);
+					Entity passenger = this.getFirstPassenger();
 					for (int i = 0; i < 3; ++i) {
 						if (passenger.isEyeInFluid(FluidTags.WATER)) {
 							this.level().addParticle(ParticleTypes.BUBBLE, passenger.getX() + (this.getRandom().nextDouble() - 0.5D) * (double) passenger.getBbWidth(), passenger.getY(), passenger.getZ() + (this.getRandom().nextDouble() - 0.5D) * (double) passenger.getBbWidth(), (this.getRandom().nextDouble() - 0.5D) * 2.0D, -this.getRandom().nextDouble(), (this.getRandom().nextDouble() - 0.5D) * 2.0D);

@@ -526,7 +526,7 @@ public class Pike extends BucketableWaterAnimal {
 			double dx = Math.cos((this.getYRot() + 90) * Math.PI / 180.0D) * distance;
 			double dz = Math.sin((this.getYRot() + 90) * Math.PI / 180.0D) * distance;
 
-			Vec3 riderPos = new Vec3(this.getX() + dx, this.getY() + this.getPassengersRidingOffset() + this.getPassengers().get(0).getMyRidingOffset(), this.getZ() + dz);
+			Vec3 riderPos = new Vec3(this.getX() + dx, this.getY() + this.getPassengersRidingOffset() + this.getFirstPassenger().getMyRidingOffset(), this.getZ() + dz);
 			function.accept(passenger, riderPos.x, riderPos.y, riderPos.z);
 		} else {
 			super.positionRider(passenger);
