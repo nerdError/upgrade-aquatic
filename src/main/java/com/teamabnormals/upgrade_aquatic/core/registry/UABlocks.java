@@ -237,7 +237,7 @@ public class UABlocks {
 	public static final RegistryObject<Block> ELDER_PRISMARINE_CORAL_SHOWER = HELPER.createBlock("elder_prismarine_coral_shower", () -> new DeadCoralShowerBlock(UAProperties.createPrismarineCoral(true)));
 	public static final RegistryObject<Block> PRISMARINE_CORAL_SHOWER = HELPER.createBlock("prismarine_coral_shower", () -> new CoralShowerBlock(ELDER_PRISMARINE_CORAL_SHOWER.get(), UAProperties.createPrismarineCoral(false)));
 
-	public static final RegistryObject<Block> ELDER_EYE = HELPER.createRareBlock("elder_eye", () -> new ElderEyeBlock(UAProperties.ELDER_EYE), Rarity.RARE);
+	public static final RegistryObject<Block> ELDER_EYE = HELPER.createBlockNoItem("elder_eye", () -> new ElderEyeBlock(UAProperties.ELDER_EYE));
 
 	public static final RegistryObject<Block> PINK_JELLY_WALL_TORCH = HELPER.createBlockNoItem("pink_jelly_wall_torch", () -> new JellyWallTorchBlock(Properties.copy(Blocks.TORCH).sound(SoundType.METAL), JellyTorchBlock.JellyTorchType.PINK));
 	public static final RegistryObject<Block> PURPLE_JELLY_WALL_TORCH = HELPER.createBlockNoItem("purple_jelly_wall_torch", () -> new JellyWallTorchBlock(Properties.copy(Blocks.TORCH).sound(SoundType.METAL), JellyTorchBlock.JellyTorchType.PURPLE));

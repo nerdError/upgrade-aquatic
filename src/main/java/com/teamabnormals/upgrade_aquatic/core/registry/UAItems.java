@@ -55,6 +55,7 @@ public class UAItems {
 
 	public static final RegistryObject<Item> PRISMARINE_ROD = HELPER.createItem("prismarine_rod", () -> new Item(new Item.Properties()));
 	public static final RegistryObject<Item> THRASHER_TOOTH = HELPER.createItem("thrasher_tooth", () -> new Item(new Item.Properties()));
+	public static final RegistryObject<Item> ELDER_EYE = HELPER.createItem("elder_eye", () -> new ElderEyeBlockItem(UABlocks.ELDER_EYE.get(), new Item.Properties().rarity(Rarity.UNCOMMON)));
 	public static final RegistryObject<Item> BOILED_PICKERELWEED = HELPER.createItem("boiled_pickerelweed", () -> new BoiledPickerelweedItem(new Item.Properties().food(UAFoods.PICKERELWEED)));
 
 	public static final RegistryObject<Item> PIKE = HELPER.createItem("pike", () -> new Item(new Item.Properties().food(UAFoods.PIKE)));
