@@ -17,10 +17,7 @@ import com.teamabnormals.upgrade_aquatic.core.data.server.UARecipeProvider;
 import com.teamabnormals.upgrade_aquatic.core.data.server.modifiers.UAAdvancementModifierProvider;
 import com.teamabnormals.upgrade_aquatic.core.data.server.modifiers.UALootModifierProvider;
 import com.teamabnormals.upgrade_aquatic.core.data.server.tags.*;
-import com.teamabnormals.upgrade_aquatic.core.other.UAClientCompat;
-import com.teamabnormals.upgrade_aquatic.core.other.UACompat;
-import com.teamabnormals.upgrade_aquatic.core.other.UADataSerializers;
-import com.teamabnormals.upgrade_aquatic.core.other.UADispenseBehaviorRegistry;
+import com.teamabnormals.upgrade_aquatic.core.other.*;
 import com.teamabnormals.upgrade_aquatic.core.registry.*;
 import com.teamabnormals.upgrade_aquatic.core.registry.util.UAItemSubRegistryHelper;
 import net.minecraft.core.HolderLookup.Provider;
@@ -36,6 +33,7 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
@@ -68,6 +66,8 @@ public class UpgradeAquatic {
 		UAPaintingVariants.PAINTING_VARIANTS.register(bus);
 		UAFeatures.TREE_DECORATORS.register(bus);
 		UADecoratedPotPatterns.DECORATED_POT_PATTERNS.register(bus);
+
+		this.registerCCCompat(bus);
 
 		MinecraftForge.EVENT_BUS.register(this);
 
@@ -159,5 +159,11 @@ public class UpgradeAquatic {
 		event.registerEntityRenderer(UAEntityTypes.CASSIOPEA_JELLYFISH.get(), CassiopeaJellyfishRenderer::new);
 		event.registerEntityRenderer(UAEntityTypes.IMMORTAL_JELLYFISH.get(), ImmortalJellyfishRenderer::new);
 		event.registerEntityRenderer(EntityType.GLOW_SQUID, UAGlowSquidRenderer::new);
+	}
+
+	private void registerCCCompat(IEventBus bus) {
+		if ("true".equals(System.getProperty("blueprint.indev")) && !ModList.get().isLoaded(UAConstants.CAVERNS_AND_CHASMS)) {
+			UABlocks.CAVERNS_AND_CHASMS.register(bus);
+		}
 	}
 }

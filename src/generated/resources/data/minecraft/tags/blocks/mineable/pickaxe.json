@@ -183,6 +183,14 @@
     "upgrade_aquatic:kelpy_stone_bricks",
     "upgrade_aquatic:kelpy_stone_brick_stairs",
     "upgrade_aquatic:kelpy_stone_brick_slab",
-    "upgrade_aquatic:kelpy_stone_brick_wall"
+    "upgrade_aquatic:kelpy_stone_brick_wall",
+    "upgrade_aquatic:kelpy_cobblestone_bricks",
+    "upgrade_aquatic:kelpy_cobblestone_brick_stairs",
+    "upgrade_aquatic:kelpy_cobblestone_brick_slab",
+    "upgrade_aquatic:kelpy_cobblestone_brick_wall",
+    "upgrade_aquatic:kelpy_cobblestone_tiles",
+    "upgrade_aquatic:kelpy_cobblestone_tile_stairs",
+    "upgrade_aquatic:kelpy_cobblestone_tile_slab",
+    "upgrade_aquatic:kelpy_cobblestone_tile_wall"
   ]
 }

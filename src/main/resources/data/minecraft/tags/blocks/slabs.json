@@ -2,6 +2,8 @@
   "replace": false,
   "values": [
     "upgrade_aquatic:kelpy_cobblestone_slab",
+    "upgrade_aquatic:kelpy_cobblestone_brick_slab",
+    "upgrade_aquatic:kelpy_cobblestone_tile_slab",
     "upgrade_aquatic:kelpy_stone_brick_slab",
     "upgrade_aquatic:tooth_slab",
     "upgrade_aquatic:tooth_brick_slab",

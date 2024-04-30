@@ -35,8 +35,8 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -48,6 +48,7 @@ import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
@@ -368,6 +369,15 @@ public class UABlocks {
 	public static final RegistryObject<Block> KELPY_STONE_BRICK_SLAB = HELPER.createBlock("kelpy_stone_brick_slab", () -> new SlabBlock(Properties.copy(Blocks.STONE_BRICKS)));
 	public static final RegistryObject<Block> KELPY_STONE_BRICK_WALL = HELPER.createBlock("kelpy_stone_brick_wall", () -> new WallBlock(Properties.copy(Blocks.STONE_BRICKS)));
 
+	public static final RegistryObject<Block> KELPY_COBBLESTONE_BRICKS = HELPER.createBlock("kelpy_cobblestone_bricks", () -> new Block(Properties.copy(Blocks.COBBLESTONE)));
+	public static final RegistryObject<Block> KELPY_COBBLESTONE_BRICK_STAIRS = HELPER.createBlock("kelpy_cobblestone_brick_stairs", () -> new StairBlock(() -> KELPY_COBBLESTONE_BRICKS.get().defaultBlockState(), Properties.copy(Blocks.COBBLESTONE)));
+	public static final RegistryObject<Block> KELPY_COBBLESTONE_BRICK_SLAB = HELPER.createBlock("kelpy_cobblestone_brick_slab", () -> new SlabBlock(Properties.copy(Blocks.COBBLESTONE)));
+	public static final RegistryObject<Block> KELPY_COBBLESTONE_BRICK_WALL = HELPER.createBlock("kelpy_cobblestone_brick_wall", () -> new WallBlock(Properties.copy(Blocks.COBBLESTONE)));
+	public static final RegistryObject<Block> KELPY_COBBLESTONE_TILES = HELPER.createBlock("kelpy_cobblestone_tiles", () -> new Block(Properties.copy(Blocks.COBBLESTONE)));
+	public static final RegistryObject<Block> KELPY_COBBLESTONE_TILE_STAIRS = HELPER.createBlock("kelpy_cobblestone_tile_stairs", () -> new StairBlock(() -> KELPY_COBBLESTONE_TILES.get().defaultBlockState(), Properties.copy(Blocks.COBBLESTONE)));
+	public static final RegistryObject<Block> KELPY_COBBLESTONE_TILE_SLAB = HELPER.createBlock("kelpy_cobblestone_tile_slab", () -> new SlabBlock(Properties.copy(Blocks.COBBLESTONE)));
+	public static final RegistryObject<Block> KELPY_COBBLESTONE_TILE_WALL = HELPER.createBlock("kelpy_cobblestone_tile_wall", () -> new WallBlock(Properties.copy(Blocks.COBBLESTONE)));
+
 	public static final RegistryObject<Block> STRIPPED_DRIFTWOOD_LOG = HELPER.createBlock("stripped_driftwood_log", () -> new RotatedPillarBlock(UAProperties.DRIFTWOOD.log()));
 	public static final RegistryObject<Block> STRIPPED_DRIFTWOOD = HELPER.createBlock("stripped_driftwood", () -> new RotatedPillarBlock(UAProperties.DRIFTWOOD.log()));
 	public static final RegistryObject<Block> DRIFTWOOD_LOG = HELPER.createBlock("driftwood_log", () -> new LogBlock(STRIPPED_DRIFTWOOD_LOG, UAProperties.DRIFTWOOD.log()));
@@ -434,6 +444,10 @@ public class UABlocks {
 				.addItemsBefore(of(Blocks.BAMBOO_BLOCK), RIVER_STAIRS, RIVER_SLAB, RIVER_FENCE, RIVER_FENCE_GATE, RIVER_DOOR, RIVER_TRAPDOOR, RIVER_PRESSURE_PLATE, RIVER_BUTTON)
 				.addItemsBefore(of(Blocks.SANDSTONE), BEACHGRASS_THATCH, BEACHGRASS_THATCH_STAIRS, BEACHGRASS_THATCH_SLAB)
 				.addItemsBefore(of(Blocks.SMOOTH_STONE), KELPY_COBBLESTONE, KELPY_COBBLESTONE_STAIRS, KELPY_COBBLESTONE_SLAB, KELPY_COBBLESTONE_WALL)
+				.addItemsBefore(modLoaded(Blocks.SMOOTH_STONE, UAConstants.CAVERNS_AND_CHASMS),
+						KELPY_COBBLESTONE_BRICKS, KELPY_COBBLESTONE_BRICK_STAIRS, KELPY_COBBLESTONE_BRICK_SLAB, KELPY_COBBLESTONE_BRICK_WALL,
+						KELPY_COBBLESTONE_TILES, KELPY_COBBLESTONE_TILE_STAIRS, KELPY_COBBLESTONE_TILE_SLAB, KELPY_COBBLESTONE_TILE_WALL
+				)
 				.addItemsBefore(of(Blocks.GRANITE), KELPY_STONE_BRICKS, KELPY_STONE_BRICK_STAIRS, KELPY_STONE_BRICK_SLAB, KELPY_STONE_BRICK_WALL)
 				.addItemsBefore(of(Blocks.NETHERRACK),
 						LUMINOUS_PRISMARINE, LUMINOUS_PRISMARINE_STAIRS, LUMINOUS_PRISMARINE_SLAB, PRISMARINE_ROD_BUNDLE,
@@ -489,11 +503,11 @@ public class UABlocks {
 				.addItemsAfter(of(Blocks.HONEY_BLOCK), MULBERRY_JAM_BLOCK)
 				.addItemsBefore(of(Blocks.SCULK_SENSOR), ELDER_EYE);
 
-		CreativeModeTabContentsPopulator.mod("berry_good_1")
+		CreativeModeTabContentsPopulator.mod("berry_good_" + UpgradeAquatic.MOD_ID)
 				.tab(NATURAL_BLOCKS)
 				.addItemsAfter(ofID(UAConstants.GLOW_BERRY_BASKET), MULBERRY_PUNNET);
 
-		CreativeModeTabContentsPopulator.mod("woodworks_1")
+		CreativeModeTabContentsPopulator.mod("woodworks_" + UpgradeAquatic.MOD_ID)
 				.tab(FUNCTIONAL_BLOCKS)
 				.addItemsBefore(ofID(UAConstants.BAMBOO_LADDER), DRIFTWOOD_LADDER, RIVER_LADDER)
 				.addItemsBefore(ofID(UAConstants.BAMBOO_BEEHIVE), DRIFTWOOD_BEEHIVE, RIVER_BEEHIVE)
@@ -671,7 +685,8 @@ public class UABlocks {
 		fallables.put(() -> Blocks.COBBLESTONE, () -> Blocks.GRAVEL);
 	});
 
-	public enum KelpType {
-		TONGUE, THORNY, OCHRE, POLAR
-	}
+	public static final DeferredRegister<Item> CAVERNS_AND_CHASMS = DeferredRegister.create(ForgeRegistries.ITEMS, UAConstants.CAVERNS_AND_CHASMS);
+
+	public static RegistryObject<Item> COBBLESTONE_BRICKS = CAVERNS_AND_CHASMS.register("cobblestone_bricks", () -> new Item(new Item.Properties()));
+	public static RegistryObject<Item> COBBLESTONE_TILES = CAVERNS_AND_CHASMS.register("cobblestone_tiles", () -> new Item(new Item.Properties()));
 }

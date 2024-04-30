@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "upgrade_aquatic:block/kelpy_cobblestone_brick_slab"
+    },
+    "type=double": {
+      "model": "upgrade_aquatic:block/kelpy_cobblestone_bricks"
+    },
+    "type=top": {
+      "model": "upgrade_aquatic:block/kelpy_cobblestone_brick_slab_top"
+    }
+  }
+}

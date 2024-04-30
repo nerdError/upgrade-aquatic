@@ -3,6 +3,8 @@ package com.teamabnormals.upgrade_aquatic.core.other;
 import net.minecraft.resources.ResourceLocation;
 
 public class UAConstants {
+	public static final String CAVERNS_AND_CHASMS = "caverns_and_chasms";
+
 	public static final ResourceLocation GLOW_BERRY_BASKET = new ResourceLocation("berry_good", "glow_berry_basket");
 
 	public static final ResourceLocation BAMBOO_LADDER = new ResourceLocation("woodworks", "bamboo_ladder");

@@ -78,10 +78,7 @@ public final class UAAdvancementModifierProvider extends AdvancementModifierProv
 				names.add(name);
 			}
 		}
-		tacticalFishing.addCriterion("squid_bucket", FilledBucketTrigger.TriggerInstance.filledBucket(ItemPredicate.Builder.item().of(UAItems.SQUID_BUCKET.get()).build()));
-		names.add("squid_bucket");
-		tacticalFishing.addCriterion("glow_squid_bucket", FilledBucketTrigger.TriggerInstance.filledBucket(ItemPredicate.Builder.item().of(UAItems.GLOW_SQUID_BUCKET.get()).build()));
-		names.add("glow_squid_bucket");
+
 		tacticalFishing.addCriterion("jellyfish_bucket", FilledBucketTrigger.TriggerInstance.filledBucket(ItemPredicate.Builder.item().of(UAItems.JELLYFISH_BUCKET.get()).build()));
 		names.add("jellyfish_bucket");
 		this.entry("husbandry/tactical_fishing").selects("husbandry/tactical_fishing").addModifier(tacticalFishing.addIndexedRequirements(0, false, names.toArray(new String[0])).build());
