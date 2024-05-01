@@ -59,7 +59,7 @@ public class UARecipeProvider extends BlueprintRecipeProvider {
 
 		storageRecipes(consumer, MISC, Items.SCUTE, BUILDING_BLOCKS, SCUTE_BLOCK.get());
 
-		ShapedRecipeBuilder.shaped(BUILDING_BLOCKS, UABlocks.SCUTE_SHINGLES.get(), 8).define('#', Blocks.STONE_BRICKS).define('S', Items.SCUTE).pattern("###").pattern("#S#").pattern("###").unlockedBy("has_scute", has(Items.SCUTE)).save(consumer);
+		ShapedRecipeBuilder.shaped(BUILDING_BLOCKS, SCUTE_SHINGLES.get(), 8).define('#', Blocks.STONE_BRICKS).define('S', Items.SCUTE).pattern("###").pattern("#S#").pattern("###").unlockedBy("has_scute", has(Items.SCUTE)).save(consumer);
 		generateRecipes(consumer, SCUTE_SHINGLES_FAMILY);
 		stonecutterRecipe(consumer, BUILDING_BLOCKS, SCUTE_SHINGLE_SLAB.get(), SCUTE_SHINGLES.get(), 2);
 		stonecutterRecipe(consumer, BUILDING_BLOCKS, SCUTE_SHINGLE_STAIRS.get(), SCUTE_SHINGLES.get());
@@ -78,7 +78,7 @@ public class UARecipeProvider extends BlueprintRecipeProvider {
 
 		storageRecipes(consumer, MISC, UAItems.THRASHER_TOOTH.get(), BUILDING_BLOCKS, TOOTH_BLOCK.get());
 
-		ShapedRecipeBuilder.shaped(BUILDING_BLOCKS, UABlocks.TOOTH_BRICKS.get(), 8).define('#', Blocks.STONE_BRICKS).define('S', UAItems.THRASHER_TOOTH.get()).pattern("###").pattern("#S#").pattern("###").unlockedBy("has_thrasher_tooth", has(UAItems.THRASHER_TOOTH.get())).save(consumer);
+		ShapedRecipeBuilder.shaped(BUILDING_BLOCKS, TOOTH_BRICKS.get(), 8).define('#', Blocks.STONE_BRICKS).define('S', UAItems.THRASHER_TOOTH.get()).pattern("###").pattern("#S#").pattern("###").unlockedBy("has_thrasher_tooth", has(UAItems.THRASHER_TOOTH.get())).save(consumer);
 		generateRecipes(consumer, TOOTH_BRICKS_FAMILY);
 		stonecutterRecipe(consumer, BUILDING_BLOCKS, TOOTH_BRICK_SLAB.get(), TOOTH_BRICKS.get(), 2);
 		stonecutterRecipe(consumer, BUILDING_BLOCKS, TOOTH_BRICK_STAIRS.get(), TOOTH_BRICKS.get());
@@ -116,6 +116,7 @@ public class UARecipeProvider extends BlueprintRecipeProvider {
 		WoodworksRecipeProvider.sawmillRecipes(consumer, RIVER_PLANKS_FAMILY, UAItemTags.RIVER_LOGS, RIVER_BOARDS.get(), RIVER_LADDER.get(), UpgradeAquatic.MOD_ID);
 		WoodworksRecipeProvider.leafPileRecipes(consumer, RIVER_LEAVES.get(), RIVER_LEAF_PILE.get(), UpgradeAquatic.MOD_ID);
 
+		ShapedRecipeBuilder.shaped(BUILDING_BLOCKS, CORALSTONE.get(), 8).define('#', Blocks.STONE_BRICKS).define('S', Items.NAUTILUS_SHELL).pattern("###").pattern("#S#").pattern("###").unlockedBy("has_nautilus_shell", has(Items.NAUTILUS_SHELL)).save(consumer);
 		generateRecipes(consumer, CORALSTONE_FAMILY);
 		stonecutterRecipe(consumer, BUILDING_BLOCKS, CORALSTONE_SLAB.get(), CORALSTONE.get(), 2);
 		stonecutterRecipe(consumer, BUILDING_BLOCKS, CORALSTONE_STAIRS.get(), CORALSTONE.get());
@@ -171,7 +172,7 @@ public class UARecipeProvider extends BlueprintRecipeProvider {
 		conditionalStonecutterRecipe(consumer, cnc, BUILDING_BLOCKS, KELPY_COBBLESTONE_TILE_STAIRS.get(), KELPY_COBBLESTONE.get());
 		conditionalStonecutterRecipe(consumer, cnc, DECORATIONS, KELPY_COBBLESTONE_TILE_WALL.get(), KELPY_COBBLESTONE.get());
 
-		conditionalRecipe(consumer, cnc, BUILDING_BLOCKS, ShapelessRecipeBuilder.shapeless(BUILDING_BLOCKS, KELPY_COBBLESTONE_BRICKS.get()).requires(UAConstants.COBBLESTONE_BRICKS.get()).requires(Blocks.KELP).group("cobblestone_bricks").unlockedBy("has_kelp", has(Blocks.KELP)), getModConversionRecipeName(KELPY_COBBLESTONE_BRICKS.get(), Blocks.KELP));
+		conditionalRecipe(consumer, cnc, BUILDING_BLOCKS, ShapelessRecipeBuilder.shapeless(BUILDING_BLOCKS, KELPY_COBBLESTONE_BRICKS.get()).requires(UAConstants.COBBLESTONE_BRICKS.get()).requires(Blocks.KELP).group("kelpy_cobblestone_bricks").unlockedBy("has_kelp", has(Blocks.KELP)), getModConversionRecipeName(KELPY_COBBLESTONE_BRICKS.get(), Blocks.KELP));
 		conditionalRecipe(consumer, cnc, BUILDING_BLOCKS, ShapelessRecipeBuilder.shapeless(BUILDING_BLOCKS, KELPY_COBBLESTONE_TILES.get()).requires(UAConstants.COBBLESTONE_TILES.get()).requires(Blocks.KELP).group("kelpy_cobblestone_tiles").unlockedBy("has_kelp", has(Blocks.KELP)), getModConversionRecipeName(KELPY_COBBLESTONE_TILES.get(), Blocks.KELP));
 	}
 

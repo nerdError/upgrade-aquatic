@@ -35,9 +35,7 @@ public final class UALootModifierProvider extends LootModifierProvider {
 
 		this.entry(BuiltInLootTables.FISHING_FISH.getPath())
 				.selects(BuiltInLootTables.FISHING_FISH)
-				.addModifier(new LootPoolEntriesModifier(
-						false,
-						0,
+				.addModifier(new LootPoolEntriesModifier(false, 0,
 						LootItem.lootTableItem(UAItems.PIKE.get()).setWeight(11).when(inSwamp.or(inRiver)).build(),
 						LootItem.lootTableItem(UAItems.PERCH.get()).setWeight(18).when(inSwamp).build(),
 						LootItem.lootTableItem(UAItems.LIONFISH.get()).setWeight(5).when(inWarmOcean).build()

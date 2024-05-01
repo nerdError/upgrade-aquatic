@@ -11,7 +11,7 @@
       "recipe": {
         "type": "minecraft:crafting_shapeless",
         "category": "building",
-        "group": "cobblestone_bricks",
+        "group": "kelpy_cobblestone_bricks",
         "ingredients": [
           {
             "item": "caverns_and_chasms:cobblestone_bricks"
