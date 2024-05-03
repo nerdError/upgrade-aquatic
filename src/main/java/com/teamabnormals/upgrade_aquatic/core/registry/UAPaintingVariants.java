@@ -12,5 +12,5 @@ public class UAPaintingVariants {
 	public static final RegistryObject<PaintingVariant> SIGHTLESS = PAINTING_VARIANTS.register("sightless", () -> new PaintingVariant(64, 32));
 	public static final RegistryObject<PaintingVariant> MONUMENT = PAINTING_VARIANTS.register("monument", () -> new PaintingVariant(64, 48));
 	public static final RegistryObject<PaintingVariant> UTENSIL = PAINTING_VARIANTS.register("utensil", () -> new PaintingVariant(16, 16));
-	public static final RegistryObject<PaintingVariant> COIL = PAINTING_VARIANTS.register("coil", () -> new PaintingVariant(64, 64));
+	public static final RegistryObject<PaintingVariant> COIL = PAINTING_VARIANTS.register("coil", () -> new PaintingVariant(48, 48));
 }
