@@ -27,10 +27,12 @@ public class UABlockTagsProvider extends BlockTagsProvider {
 	public void addTags(Provider provider) {
 		IntrinsicTagAppender<Block> mineableWithPickaxe = this.tag(BlockTags.MINEABLE_WITH_PICKAXE);
 		IntrinsicTagAppender<Block> mineableWithHoe = this.tag(BlockTags.MINEABLE_WITH_HOE);
+		IntrinsicTagAppender<Block> mineableWithShovel = this.tag(BlockTags.MINEABLE_WITH_SHOVEL);
 
 		this.tag(BlockTags.MINEABLE_WITH_AXE).add(MULBERRY_PUNNET.get());
 		mineableWithPickaxe.add(EMBEDDED_AMMONITE.get(), PRISMARINE_ROD_BUNDLE.get(), ELDER_EYE.get());
 		mineableWithHoe.add(RIVER_LEAVES.get());
+		mineableWithShovel.add(SAND_LAYER.get(), RED_SAND_LAYER.get(), GRAVEL_LAYER.get());
 
 		for (RegistryObject<Block> block : HELPER.getDeferredRegister().getEntries()) {
 			String path = block.getId().getPath();

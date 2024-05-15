@@ -238,6 +238,10 @@ public class UABlocks {
 
 	public static final RegistryObject<Block> ELDER_EYE = HELPER.createBlockNoItem("elder_eye", () -> new ElderEyeBlock(UAProperties.ELDER_EYE));
 
+	public static final RegistryObject<Block> SAND_LAYER = HELPER.createBlock("sand_layer", () -> new FallingLayerBlock(Blocks.SAND, UAProperties.FALLING_LAYER));
+	public static final RegistryObject<Block> RED_SAND_LAYER = HELPER.createBlock("red_sand_layer", () -> new FallingLayerBlock(Blocks.RED_SAND, UAProperties.FALLING_LAYER));
+	public static final RegistryObject<Block> GRAVEL_LAYER = HELPER.createBlock("gravel_layer", () -> new FallingLayerBlock(Blocks.GRAVEL, UAProperties.FALLING_LAYER));
+
 	public static final RegistryObject<Block> PINK_JELLY_WALL_TORCH = HELPER.createBlockNoItem("pink_jelly_wall_torch", () -> new JellyWallTorchBlock(Properties.copy(Blocks.TORCH).sound(SoundType.METAL), JellyTorchBlock.JellyTorchType.PINK));
 	public static final RegistryObject<Block> PURPLE_JELLY_WALL_TORCH = HELPER.createBlockNoItem("purple_jelly_wall_torch", () -> new JellyWallTorchBlock(Properties.copy(Blocks.TORCH).sound(SoundType.METAL), JellyTorchBlock.JellyTorchType.PURPLE));
 	public static final RegistryObject<Block> BLUE_JELLY_WALL_TORCH = HELPER.createBlockNoItem("blue_jelly_wall_torch", () -> new JellyWallTorchBlock(Properties.copy(Blocks.TORCH).sound(SoundType.METAL), JellyTorchBlock.JellyTorchType.BLUE));
@@ -499,7 +503,10 @@ public class UABlocks {
 				.addItemsAfter(of(Blocks.DEAD_HORN_CORAL_FAN), DEAD_ACAN_CORAL_FAN, DEAD_FINGER_CORAL_FAN, DEAD_STAR_CORAL_FAN, DEAD_MOSS_CORAL_FAN, DEAD_PETAL_CORAL_FAN, DEAD_BRANCH_CORAL_FAN, DEAD_ROCK_CORAL_FAN, DEAD_PILLOW_CORAL_FAN, DEAD_SILK_CORAL_FAN, DEAD_CHROME_CORAL_FAN, ELDER_PRISMARINE_CORAL_FAN, PRISMARINE_CORAL_SHOWER, ELDER_PRISMARINE_CORAL_SHOWER)
 				.tab(REDSTONE_BLOCKS)
 				.addItemsAfter(of(Blocks.HONEY_BLOCK), MULBERRY_JAM_BLOCK)
-				.addItemsBefore(of(Blocks.SCULK_SENSOR), ELDER_EYE);
+				.addItemsBefore(of(Blocks.SCULK_SENSOR), ELDER_EYE)
+				.addItemsBefore(of(Blocks.SAND), SAND_LAYER)
+				.addItemsBefore(of(Blocks.RED_SAND), RED_SAND_LAYER)
+				.addItemsBefore(of(Blocks.GRAVEL), GRAVEL_LAYER);
 
 		CreativeModeTabContentsPopulator.mod("berry_good_" + UpgradeAquatic.MOD_ID)
 				.tab(NATURAL_BLOCKS)
@@ -550,6 +557,8 @@ public class UABlocks {
 		public static final BlockBehaviour.Properties ELDER_EYE = BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).sound(SoundType.METAL).strength(1.0F);
 		public static final BlockBehaviour.Properties PICKERELWEED = BlockBehaviour.Properties.of().mapColor(MapColor.GRASS).randomTicks().noCollission().strength(0.0F).sound(SoundType.WET_GRASS);
 		public static final BlockBehaviour.Properties BEACHGRASS_THATCH = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW).strength(0.5F).sound(SoundType.GRASS).noOcclusion();
+
+		public static final BlockBehaviour.Properties FALLING_LAYER = BlockBehaviour.Properties.of().mapColor(MapColor.SAND).sound(SoundType.SAND).strength(0.0F);
 
 		public static BlockBehaviour.Properties createCoral(MapColor color) {
 			return BlockBehaviour.Properties.of().mapColor(color).noCollission().instabreak().sound(SoundType.WET_GRASS);
@@ -670,8 +679,8 @@ public class UABlocks {
 	});
 
 	public static final Map<Supplier<Block>, Supplier<Block>> SAND_FALLABLES = Util.make(Maps.newHashMap(), (fallables) -> {
-		fallables.put(() -> Blocks.SANDSTONE, () -> Blocks.SAND);
-		fallables.put(() -> Blocks.RED_SANDSTONE, () -> Blocks.RED_SAND);
+		fallables.put(() -> Blocks.SANDSTONE, () -> UABlocks.SAND_LAYER.get());
+		fallables.put(() -> Blocks.RED_SANDSTONE, () -> UABlocks.RED_SAND_LAYER.get());
 	});
 
 	public static final Map<Supplier<Block>, Supplier<Block>> ATMOSPHERIC_SAND_FALLABLES = ModList.get().isLoaded("atmospheric") ? Util.make(Maps.newHashMap(), (fallables) -> {
@@ -680,6 +689,6 @@ public class UABlocks {
 	}) : null;
 
 	public static final Map<Supplier<Block>, Supplier<Block>> GRAVEL_FALLABLES = Util.make(Maps.newHashMap(), (fallables) -> {
-		fallables.put(() -> Blocks.COBBLESTONE, () -> Blocks.GRAVEL);
+		fallables.put(() -> Blocks.COBBLESTONE, () -> UABlocks.GRAVEL_LAYER.get());
 	});
 }

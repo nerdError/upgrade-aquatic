@@ -1,5 +1,6 @@
 package com.teamabnormals.upgrade_aquatic.core.mixin;
 
+import com.teamabnormals.upgrade_aquatic.common.block.entity.FallingLayerEntity;
 import com.teamabnormals.upgrade_aquatic.core.UAConfig;
 import com.teamabnormals.upgrade_aquatic.core.registry.UABlocks;
 import net.minecraft.core.BlockPos;
@@ -9,6 +10,7 @@ import net.minecraft.world.entity.item.FallingBlockEntity;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.BubbleColumnBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.phys.AABB;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -56,8 +58,12 @@ public abstract class BubbleColumnBlockMixin {
 	}
 
 	private void spawnFallingBlock(ServerLevel world, BlockPos pos, Block block) {
-		FallingBlockEntity fallingblockentity = FallingBlockEntity.fall(world, pos, block.defaultBlockState());
-		fallingblockentity.time = 1;
-		world.addFreshEntity(fallingblockentity);
+		BlockState state = block.defaultBlockState();
+		FallingLayerEntity fallinglayerentity = new FallingLayerEntity(world,
+				(double)pos.getX() + 0.5D, (double)pos.getY() - 0.125D, (double)pos.getZ() + 0.5D,
+				state.hasProperty(BlockStateProperties.WATERLOGGED) ?
+						state.setValue(BlockStateProperties.WATERLOGGED, Boolean.FALSE) : state);
+		fallinglayerentity.time = 1;
+		world.addFreshEntity(fallinglayerentity);
 	}
 }
