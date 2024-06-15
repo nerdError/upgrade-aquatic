@@ -45,6 +45,7 @@ import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.PushReaction;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -548,11 +549,11 @@ public class UABlocks {
 		public static final BlockBehaviour.Properties CORALSTONE = Properties.copy(Blocks.STONE).randomTicks();
 
 		public static final BlockBehaviour.Properties ELDER_EYE = BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).sound(SoundType.METAL).strength(1.0F);
-		public static final BlockBehaviour.Properties PICKERELWEED = BlockBehaviour.Properties.of().mapColor(MapColor.GRASS).randomTicks().noCollission().strength(0.0F).sound(SoundType.WET_GRASS);
+		public static final BlockBehaviour.Properties PICKERELWEED = BlockBehaviour.Properties.of().mapColor(MapColor.GRASS).randomTicks().noCollission().instabreak().sound(SoundType.WET_GRASS).pushReaction(PushReaction.DESTROY);
 		public static final BlockBehaviour.Properties BEACHGRASS_THATCH = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW).strength(0.5F).sound(SoundType.GRASS).noOcclusion();
 
 		public static BlockBehaviour.Properties createCoral(MapColor color) {
-			return BlockBehaviour.Properties.of().mapColor(color).noCollission().instabreak().sound(SoundType.WET_GRASS);
+			return BlockBehaviour.Properties.of().mapColor(color).noCollission().instabreak().sound(SoundType.WET_GRASS).pushReaction(PushReaction.DESTROY);
 		}
 
 		public static BlockBehaviour.Properties createCoralBlock(MapColor color) {
@@ -561,7 +562,7 @@ public class UABlocks {
 
 		public static BlockBehaviour.Properties createPrismarineCoral(boolean elder) {
 			MapColor color = !elder ? MapColor.DIAMOND : MapColor.TERRACOTTA_WHITE;
-			return BlockBehaviour.Properties.of().mapColor(color).noCollission().instabreak().lightLevel((unknown) -> (5)).sound(SoundType.GLASS);
+			return BlockBehaviour.Properties.of().mapColor(color).noCollission().instabreak().lightLevel((unknown) -> (5)).sound(SoundType.GLASS).pushReaction(PushReaction.DESTROY);
 		}
 
 		public static BlockBehaviour.Properties createPrismarineCoralBlock(boolean elder) {
@@ -570,7 +571,7 @@ public class UABlocks {
 		}
 
 		public static BlockBehaviour.Properties createPickerelweedBlock(boolean isBoiled) {
-			return isBoiled ? BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).strength(0.5F, 5).noOcclusion().sound(SoundType.GRASS) : BlockBehaviour.Properties.of().mapColor(MapColor.GRASS).noOcclusion().strength(0.5F, 5).sound(SoundType.WET_GRASS);
+			return isBoiled ? BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).strength(0.5F, 5).noOcclusion().sound(SoundType.GRASS).pushReaction(PushReaction.DESTROY) : BlockBehaviour.Properties.of().mapColor(MapColor.GRASS).noOcclusion().strength(0.5F, 5).sound(SoundType.WET_GRASS).pushReaction(PushReaction.DESTROY);
 		}
 	}
 
